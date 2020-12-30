@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Epic Game</title>
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <body>
+      <h1>Epic Game</h1>
+      <div class ="character">
+      <image src="graphics/charactersprites/placeholder/placeholder a.png">
+      <p>Pogman</p>
+      </div>
+    <p id="moneyGrinded" class="money-grinded">Make Cash! Serve a cup of Coffee!</p>
+    <div id="navigateButtons">
+      <button onclick="tab('counterMenue')">To the counter</button>
+      <button onclick="tab('shelfMenue')">To the shelf</button>
+      <button onclick="tab('machineMenue')">Machine upgrades</button>
+      <button onclick="tab('cafebarMenue')">Your Café</button>
+    </div>
+    <div id="counterMenue">
+      <button onclick="serveCup()">Serve a cup☕</button>
+    </div>
+    <div id="shelfMenue">
+      <span title="Coffee: A caffeine rich hot beverage. Very popular. Upgrade your coffee making skills by using better coffeebeans! This upgrade will give you more money per serving."><button onclick="buyCoffee()" id="buyCoffee">Start making Coffee | Cost: 10💵</button></span>
+      <span title="Espresso: *The* hot energy kick. Because it's beans have been roasted longer than it's coffee counterpart it's oils and natural acids have been vaporized. People with a weak stomach should therefore try an Espresso over Coffee. This upgrade will give you more money per serving. Different upgrades will be added together."><button onclick= "buyEspresso()" id="buyEspresso">Start making Espresso | Cost: 100💵</button></span>
+      <span title="Espressio Doppio: Just a regular Espressio, but twice the size! This upgrade brings you more money per serving."><button onclick="buyEspressoDoppio()" id="buyEspressoDoppio">Start making Espresso Doppio | Cost: 200💵</button></span>
+    </div>
+    <div id="machineMenue">
+      <span title="Add a shot of Pumpkinspice. It's sweet aroma will dominate the bitterness of the even strongest coffee, giving the hot beverage a delightfull feeling of: 'autumn has come'. This mod allows you to get more money per serving."><button id="buyPumpkinspiceMod" onclick="buyPumpkinspiceMod()">Pumpkin Spice Mod | Cost: 500💵</button></span>
+    </div>
+    <div id="cafebarMenue">
+      <span title="Non caffeine based lifeforms. Flowers smell good and look nice. Raises your overall charm. "><button id="buyFlowers" onclick= buyFlowers()>Decorate your bar with flowers | Cost: 1000💵</button></span>
+    </div>
+    <script src="main.js" charset="utf-8" type="text/javascript"></script>
+  </body>
+</html>
