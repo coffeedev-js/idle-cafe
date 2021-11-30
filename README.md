@@ -1,5 +1,5 @@
 # The Epic Game
-
+*A clicker game and dating sim about Coffee*☕
 ## About this game
 Under the project name "The Epic Game" this epic game combines the satisfying elements of an idle clicker game, while also mimicking the cute dating elements of a visual novel.
 
@@ -19,11 +19,11 @@ Step into the shoes of a fully fledged and more than ready barista! Brew Coffee 
 
 ### Progress
 Main mechanics<br> [⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫]<br>
-Main implementations<br>[⚫⚫⚫⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪]<br>
-Dating mechanics<br>[⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪] <br>
-Dating implementations<br>[⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪]<br>
+Main implementations<br>[⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫]<br>
+Dating mechanics<br>[⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫] <br>
+Dating implementations<br>[⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫]<br>
 Non-Core mechanics<br>[⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪] <br>
-Visuals<br>[⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪]
+Visuals<br>[⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪]<br>
 
 Legend:<br>
 ⚫ = Done<br>
@@ -33,4 +33,4 @@ Legend:<br>
 **Dating mechanics** = The developement status of the logic behind the core "dating side" of the game.<br>
 **Dating implementations** = The implementation of various dating elements and characters into the existing logic.<br>
 **Non-Core mechanics** = Gameplay elements that are a neat addition to the game, but are not required for the core game experience.<br>
-**Visuals** = Shows the developmental status of the visuals in the game. These visuals are needed to make the UI into an actual nice looking game and for the character sprites. 
+**Visuals** = Shows the developmental status of the visuals in the game. These visuals are needed to make the UI into an actual nice looking game and also the character sprites.

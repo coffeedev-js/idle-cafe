@@ -1,37 +1,270 @@
+<!--Game idea: Make coffee mashine run on linux and add easter egg: apt-upgrade-->
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Epic Game</title>
-    <link rel="stylesheet" href="main.css">
-  </head>
-  <body>
-      <h1>Epic Game</h1>
-      <div class ="character">
-      <image src="graphics/charactersprites/placeholder/placeholder a.png">
-      <p>Pogman</p>
+
+<head>
+  <meta charset="utf-8">
+  <title>Epic Game</title>
+  <link rel="stylesheet" href="ui.css">
+  <link rel="stylesheet" href="https://unpkg.com/98.css" />
+</head>
+
+<body
+  onload="loadUI(); pickChoice(); checkDiscoveredBeverages(); checkDiscoveredIngrediants(); loadName(); loadIntroState();">
+
+  <div class="gameUI">
+    <div class="datingUI">
+      <div class="window" id="cafeWindow">
+        <div class="title-bar">
+          <img id="cafeIcon" src="graphics/charactersprites/placeholder/placeholder.webp">
+          <div class="title-bar-text" id="cafeName"></div>
+          <div class="title-bar-controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Maximize"></button>
+            <button aria-label="Close"></button>
+          </div>
+        </div>
+        <div class="window-body" id="cafeBackground">
+          <img id="customer" src="graphics/charactersprites/placeholder/placeholder.webp">
+        </div>
       </div>
-    <p id="moneyGrinded" class="money-grinded">Make Cash! Serve a cup of Coffee!</p>
-    <div id="navigateButtons">
-      <button onclick="tab('counterMenue')">To the counter</button>
-      <button onclick="tab('shelfMenue')">To the shelf</button>
-      <button onclick="tab('machineMenue')">Machine upgrades</button>
-      <button onclick="tab('cafebarMenue')">Your Café</button>
+      <div class="window" id="textBoxWindow">
+        <div class="window-body">
+          <p class="titleText">Blah Blah Blah</p>
+        </div>
+      </div>
     </div>
-    <div id="counterMenue">
-      <button onclick="serveCup()">Serve a cup☕</button>
+    <div class="clickerUI">
+      <div class="window" id="idleCafeWindow">
+        <div class="title-bar">
+          <div class="title-bar-text">☕ Idle Café.exe (Pre-Alpha release Ver. 0.1.1)</div>
+          <div class="title-bar-controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Maximize"></button>
+            <button aria-label="Close"></button>
+          </div>
+        </div>
+        <div class="window-body" id="cafeWindowBody">
+          <img id="coffeeIcon" src="graphics/charactersprites/placeholder/placeholder.webp">
+          <p class="welcomeText">Welcome to Idle Café!</p>
+          <p class="loginText">You are currently logged in as:&nbsp;</p>
+          <div id="playerName"></div>
+          <fieldset id="yourCafe">
+            <legend>Game Options</legend>
+            <button id="saveData">Save Data💾</button>
+            <button id="manual" onmouseover="this.innerHTML='Barista Manual📖'" ;
+              onmouseout="this.innerHTML='Barista Manual📕'">Barista Manual📕</button>
+            <button id="bugReport">Report a bug!🐛</button>
+            <button id="devLog">View Devlog</button>
+            <button id="donate">Like this game?</button>
+          </fieldset>
+        </div>
+      </div>
+      <div class="window" id="shelfUI">
+        <div class="title-bar">
+          <img id="cafeIcon" src="graphics/charactersprites/placeholder/placeholder.webp">
+          <div class="title-bar-text" id="shelfTitleText">Shelf.lib</div>
+          <div class="title-bar-controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Maximize"></button>
+            <button aria-label="Close"></button>
+          </div>
+        </div>
+        <div class="window-body" id="shelfUIWindow">
+          <img id="shelfItem1" src="graphics/charactersprites/placeholder/placeholder.webp">
+          <img id="shelfItem2" src="graphics/charactersprites/placeholder/placeholder.webp">
+          <img id="shelfItem3" src="graphics/charactersprites/placeholder/placeholder.webp">
+          <img id="shelfItem4" src="graphics/charactersprites/placeholder/placeholder.webp">
+          <img id="shelfItem5" src="graphics/charactersprites/placeholder/placeholder.webp">
+        </div>
+      </div>
+      <div class="window" id="brewPadWindow">
+        <div class="title-bar">
+          <img id="cafeIcon" src="graphics/charactersprites/placeholder/placeholder.webp">
+          <div class="title-bar-text" style="margin-right: 77%;">BrewPad</div>
+          <div class="title-bar-controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Maximize"></button>
+            <button aria-label="Close"></button>
+          </div>
+        </div>
+        <div class="window-body" id="brewPadWindowBody">
+          <p id="moneyGrinded" class="money-grinded">Loading Data</p>
+          <fieldset id="coolTool">
+            <legend>Your Bar</legend>
+            <div id="navigateButtons">
+              <button onclick="tab('counterMenue'); resetBrewBud()">To the counter</button>
+              <button onclick="tab('shelfMenue'); resetBrewBud()">To the shelf</button>
+              <button onclick="tab('brewMenue'); resetBrewBud()">Discovered Beverages</button>
+              <button onclick="tab('machineMenue'); resetBrewBud()">Machine upgrades</button>
+              <button onclick="tab('cafebarMenue'); resetBrewBud()">Your Café</button>
+            </div>
+            <br>
+            <div id="counterMenue">
+              <button onclick="serveCup()">Serve a cup☕</button>
+            </div>
+            <div id="shelfMenue">
+              <button onclick="goldenRoast()" id="goldenRoast" onmouseover="goldRoastInfo()">Coffee beans - "Golden
+                Roast" | Cost: 10💵</button>
+              <button onclick="milk()" id="milk" onmouseover="milkInfo()">Milk | Cost: 20💵</button>
+              <button onclick="hotWater()" id="hotWater" onmouseover="hotWaterInfo()">Hot water | Cost: 30</button>
+              <button onclick="greenTeaLeafes()" id="greenTeaLeafs" onmouseover="greenTeaLeafsInfo()">Green tea leafs |
+                Cost: 40💵</button>
+              <button onclick="robustaPremium()" id="robustaPremium" onmouseover="robustaPremiumInfo()">Coffee beans -
+                "Robusta Premium" | Cost: 50💵</button>
+              <br>
+              <button onclick="brewIt()" id="brewIt" onmouseover="brewItInfo()">Brew it!</button>
+              <button onclick="frothMilk()" id="frothMilk" onmouseover="frothMilkInfo()">Froth up milk</button>
+              <button onclick="resetBrewByUser()" id="resetBrew" onmouseover="resetInfo()">Reset</button>
+            </div>
+            <div id="brewMenue">
+              <button onclick="buyCoffee()" id="buyCoffee" onmouseover="coffeeInfo()">Start serving Coffee | Cost:
+                5💵</button>
+              <button onclick="buyCoffeeWithMilk()" id="buyCoffeeWithMilk" onmouseover="buyCoffeeWithMilkInfo()">Start
+                serving Coffee with Milk | Cost: 10💵</button>
+              <button onclick="buyMilkCoffee()" id="buyMilkCoffee" onmouseover="buyMilkCoffeeInfo()">Start serving milk
+                coffee | Cost: 20💵</button>
+              <button onclick="buyGlasMilk()" id="buyGlasMilk" onmouseover="glassMilkInfo()">Start serving glasses of
+                milk | Cost: 30💵</button>
+              <button onclick="buyGreenTea()" id="buyGreenTea" onmouseover="greenTeaInfo()">Start serving green Tea |
+                Cost: 40💵</button>
+              <button onclick="buyCafeAmericano()" id="buyCafeAmericano" onmouseover="buyCafeAmericanoInfo()">Start
+                serving Cafe Americano | Cost: 50💵</button>
+              <button onclick="buyCafeLatte()" id="buyCafeLatte" onmouseover="buyCafeLatteInfo()">Start serving Cafe
+                Latté | Cost: 60💵</button>
+              <!--<button onclick="buyAutoCoffee()" id="buyAutoCoffee" onmouseover="autocoffeeInfo()">Awaken Auto-Coffee | Cost: 20💵</button>
+              <button onclick= "buyEspresso()" id="buyEspresso" onmouseover="espressoInfo()">Start making Espresso | Cost: 100💵</button>
+              <button onclick="buyEspressoDoppio()" id="buyEspressoDoppio" onmouseover="espressodoppioInfo()">Start making Espresso Doppio | Cost: 200💵</button>-->
+            </div>
+            <div id="machineMenue">
+              <!--<span title="Add a shot of Pumpkinspice. It's sweet aroma will dominate the bitterness of the even strongest coffee, giving the hot beverage a delightfull feeling of: 'autumn has come'. This mod allows you to get more money per serving."><button id="buyPumpkinspiceMod" onclick="buyPumpkinspiceMod()">Pumpkin Spice Mod | Cost: 500💵</button></span>-->
+              <button onclick="buySteamWandMod()" id="buySteamWandMod" onmouseover="buySteamWandModInfo()">Steam wand
+                mod | Cost: 500💵</button>
+            </div>
+            <div id="cafebarMenue">
+              <span
+                title="Non caffeine based lifeforms. Flowers smell good and look nice. Raises your overall charm. "><button
+                  id="buyFlowers" onclick=buyFlowers()>Decorate your bar with flowers | Cost: 1000💵</button></span>
+              <button id="buyCuteApron" onclick=buyCuteApron()>Get yourself a cute apron! | Cost: 1500💵</button>
+            </div>
+          </fieldset>
+          <fieldset id="brewBudNfo">
+            <legend>BrewBud ver. 1. 0</legend>
+            <p id="brewbudText">Oh hi there Barista!ヾ(^ω^*)</p>
+          </fieldset>
+        </div>
+      </div>
+      <div class="window" id="coffeeMachineUI">
+        <div class="title-bar">
+          <img id="cafeIcon" src="graphics/charactersprites/placeholder/placeholder.webp">
+          <div class="title-bar-text" id="machineTitleText">Machine.coffee</div>
+          <div class="title-bar-controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Maximize"></button>
+            <button aria-label="Close"></button>
+          </div>
+        </div>
+        <div class="window-body" id="coffeeMachineWindow">
+          <img id="machineDepic" src="graphics/charactersprites/placeholder/placeholder.webp">
+        </div>
+      </div>
     </div>
+  </div>
+  <div class="taskBarUI">
+    <div id="taskBar"></div>
+    <div id="OSMenue"></div>
+    <div id="OSMenueShader1"></div>
+    <div id="OSMenueShader2"></div>
+    <div id="OSLogo"></div>
+    <div id="OSLogoDiv1"></div>
+    <div id="OSLogoDiv2"></div>
+    <p id="OSBtnTxt">Start</p>
+  </div>
+
+
+
+  <!--<div class="window" id="softwareInfoUI">
+        <div class="title-bar">
+          <div class="title-bar-text">☕ Idle Café ver. 0.1.0 Alpha.exe</div>
+          <div class="title-bar-controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Maximize"></button>
+            <button aria-label="Close"></button>
+          </div>
+        </div>
+        <div class="window-body">
+          <p class="titleText">Hello Barista! You are currently logged in as:&nbsp;</p>
+          <p class="titleText"id="playerName"></p>
+          <p class="titleText">Your registered Café:&nbsp;</p>
+          <p class="titleText" id="cafeName"></p>
+          <img id="coffeeIcon" src="graphics/charactersprites/placeholder/placeholder.webp">
+      </div>-->
+  <div id="achievment" onclick="closeWidget()">
+    <input type="text" id="widget">
+  </div>
+  <div class="characterbox">
+    <div id="sprite" onclick="interact()">
+      <img id="charsprite" src="graphics/charactersprites/placeholder/placeholder a.png">
+    </div>
+    <p id="charname">Loading...</p>
+    <p id="dialougeText"></p>
+  </div>
+
+  <!--<div id="navigateButtons">
+      <button onclick="tab('counterMenue'); resetBrewBud()">To the counter</button>
+      <button onclick="tab('shelfMenue'); resetBrewBud()">To the shelf</button>
+      <button onclick="tab('brewMenue'); resetBrewBud()">Discovered Beverages</button>
+      <button onclick="tab('machineMenue'); resetBrewBud()">Machine upgrades</button>
+      <button onclick="tab('cafebarMenue'); resetBrewBud()">Your Café</button>
+      <button onclick="tab('brewbudMenue'); resetBrewBud()">BrewBud</button>
+    </div>
+    <br>
+
     <div id="shelfMenue">
-      <span title="Coffee: A caffeine rich hot beverage. Very popular. Upgrade your coffee making skills by using better coffeebeans! This upgrade will give you more money per serving."><button onclick="buyCoffee()" id="buyCoffee">Start making Coffee | Cost: 10💵</button></span>
-      <span title="Espresso: *The* hot energy kick. Because it's beans have been roasted longer than it's coffee counterpart it's oils and natural acids have been vaporized. People with a weak stomach should therefore try an Espresso over Coffee. This upgrade will give you more money per serving. Different upgrades will be added together."><button onclick= "buyEspresso()" id="buyEspresso">Start making Espresso | Cost: 100💵</button></span>
-      <span title="Espressio Doppio: Just a regular Espressio, but twice the size! This upgrade brings you more money per serving."><button onclick="buyEspressoDoppio()" id="buyEspressoDoppio">Start making Espresso Doppio | Cost: 200💵</button></span>
+      <button onclick="goldenRoast()" id="goldenRoast" onmouseover="goldRoastInfo()">Coffee beans - "Golden Roast" | Cost: 10💵</button>
+      <button onclick="milk()" id="milk" onmouseover="milkInfo()">Milk | Cost: 20💵</button>
+      <button onclick="hotWater()" id="hotWater" onmouseover="hotWaterInfo()">Hot water | Cost: 30</button>
+      <button onclick="greenTeaLeafes()" id="greenTeaLeafs" onmouseover="greenTeaLeafsInfo()">Green tea leafs | Cost: 40💵</button>
+      <button onclick="robustaPremium()" id="robustaPremium" onmouseover="robustaPremiumInfo()">Coffee beans - "Robusta Premium" | Cost: 50💵</button>
+      <br>
+      <button onclick="brewIt()" id="brewIt" onmouseover="brewItInfo()">Brew it!</button>
+      <button onclick="frothMilk()" id="frothMilk" onmouseover="frothMilkInfo()">Froth up milk</button>
+      <button onclick="resetBrewByUser()" id="resetBrew" onmouseover="resetInfo()">Reset</button>
     </div>
+    <div id="brewMenue">
+      <button onclick="buyCoffee()" id="buyCoffee" onmouseover="coffeeInfo()">Start serving Coffee | Cost: 5💵</button>
+      <button onclick="buyCoffeeWithMilk()" id="buyCoffeeWithMilk" onmouseover="buyCoffeeWithMilkInfo()">Start serving Coffee with Milk | Cost: 10💵</button>
+      <button onclick="buyMilkCoffee()" id="buyMilkCoffee" onmouseover="buyMilkCoffeeInfo()">Start serving milk coffee | Cost: 20💵</button>
+      <button onclick="buyGlasMilk()" id="buyGlasMilk" onmouseover="glassMilkInfo()">Start serving glasses of milk | Cost: 30💵</button>
+      <button onclick="buyGreenTea()" id="buyGreenTea" onmouseover="greenTeaInfo()">Start serving green Tea | Cost: 40💵</button>
+      <button onclick="buyCafeAmericano()" id="buyCafeAmericano" onmouseover="buyCafeAmericanoInfo()">Start serving Cafe Americano | Cost: 50💵</button>
+      <button onclick="buyCafeLatte()" id="buyCafeLatte" onmouseover="buyCafeLatteInfo()">Start serving Cafe Latté | Cost: 60💵</button>
+      <button onclick="buyAutoCoffee()" id="buyAutoCoffee" onmouseover="autocoffeeInfo()">Awaken Auto-Coffee | Cost: 20💵</button>
+      <button onclick= "buyEspresso()" id="buyEspresso" onmouseover="espressoInfo()">Start making Espresso | Cost: 100💵</button>
+      <button onclick="buyEspressoDoppio()" id="buyEspressoDoppio" onmouseover="espressodoppioInfo()">Start making Espresso Doppio | Cost: 200💵</button>-->
+  <!--</div>
     <div id="machineMenue">
-      <span title="Add a shot of Pumpkinspice. It's sweet aroma will dominate the bitterness of the even strongest coffee, giving the hot beverage a delightfull feeling of: 'autumn has come'. This mod allows you to get more money per serving."><button id="buyPumpkinspiceMod" onclick="buyPumpkinspiceMod()">Pumpkin Spice Mod | Cost: 500💵</button></span>
-    </div>
-    <div id="cafebarMenue">
-      <span title="Non caffeine based lifeforms. Flowers smell good and look nice. Raises your overall charm. "><button id="buyFlowers" onclick= buyFlowers()>Decorate your bar with flowers | Cost: 1000💵</button></span>
-    </div>
-    <script src="main.js" charset="utf-8" type="text/javascript"></script>
-  </body>
+    <span title="Add a shot of Pumpkinspice. It's sweet aroma will dominate the bitterness of the even strongest coffee, giving the hot beverage a delightfull feeling of: 'autumn has come'. This mod allows you to get more money per serving."><button id="buyPumpkinspiceMod" onclick="buyPumpkinspiceMod()">Pumpkin Spice Mod | Cost: 500💵</button></span>-->
+  <button onclick="buySteamWandMod()" id="buySteamWandMod" onmouseover="buySteamWandModInfo()">Steam wand mod | Cost:
+    500💵</button>
+  </div>
+  <div id="cafebarMenue">
+    <span title="Non caffeine based lifeforms. Flowers smell good and look nice. Raises your overall charm. "><button
+        id="buyFlowers" onclick=buyFlowers()>Decorate your bar with flowers | Cost: 1000💵</button></span>
+    <button id="buyCuteApron" onclick=buyCuteApron()>Get yourself a cute apron! | Cost: 1500💵</button>
+  </div>
+  <div id="brewbudMenue">
+    <button onclick="openSocialMedia()" id="socialmediabutton" onmouseover="socialmediaInfo()">_SPEEN</button>
+    <button onclick="openSlick()" id="slickinfobutton" onmouseover="slickInfo()">SLiCK</button>
+  </div>
+  <div id="UIinfo">
+    <p>BrewBud v. 1.0</p>
+    <!--<p id="brewbudText">Oh hi there Barista!ヾ(^ω^*)</p>
+    </div>-->
+    <script src="game.js" charset="utf-8" type="text/javascript"></script>
+    <script src="characters.js" charset="utf-8" type="text/javascript"></script>
+    <script src="gameui.js" charset="utf-8" type="text/javascript"></script>
+    <script src="brewing.js" charset="utf-8" type="text/javascript"></script>
+</body>
+
 </html>

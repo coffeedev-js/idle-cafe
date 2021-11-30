@@ -1,0 +1,318 @@
+.pageContent {
+    max-width: 1500px;
+    margin: auto;
+  }
+
+.money-grinded {
+    color: green;
+}
+
+body {
+    margin: 0%;
+    text-align: center;
+    font-family: "Comic Sans MS", sans-serif;
+    background-color: #018281;
+}
+
+* { 
+    outline: none;
+}
+
+#buyAutoCoffee {
+    background-color: #c0ffee
+}
+
+#charsprite {
+    width: 1000px;
+    height: 600px;
+    z-index: 1;
+    position: relative;
+}
+
+#charname{
+    font-size: large;
+}
+
+p{
+    font-family: 'Franklin Gothic', sans-serif;
+}
+p#charname{
+    font-weight: 600;
+    font-size: large;
+}
+#sprite{
+    cursor: url("/graphics/gameUI/mouse/interact.png"), auto;
+}
+
+#widget {
+    padding: 25px;
+    font-size: 18px;
+    border-width: 0px;
+    border-color: #74fdff;
+    background-color: #FFFFFF;
+    color: #09edff;
+    border-style: solid;
+    border-radius: 14px;
+    box-shadow: 0px 0px 8px rgba(79,216,219,.75);
+    text-shadow: 0px 0px 5px rgba(66,66,66,.75);
+    margin-left: 30%;
+    margin-top: -10%;
+    z-index: 2;
+    position: relative;
+    background-image: url("lol");
+    display: none;
+    
+}
+#widget:focus {
+    outline:none;
+}
+#buyCoffee{
+    display: none;
+}
+#buyCoffeeWithMilk{
+    display: none;
+}
+#buyMilkCoffee{
+    display: none;
+}
+#buyGlasMilk{
+    display: none;
+}
+#buyGreenTea{
+    display: none;
+}
+#hotWater{
+    display: none;
+}
+#greenTeaLeafs{
+    display: none;
+}
+#frothMilk{
+    display: none;
+}
+#robustaPremium{
+    display: none;
+}
+#buyCafeAmericano{
+    display: none;
+}
+#buyCafeLatte{
+    display: none;
+}
+#buyCuteApron{
+    display: none;
+}
+.welcomeText{
+    font-size: 15px;
+    margin-bottom: 0%;
+    text-align: left;
+    position: relative;
+    z-index: 0;
+}
+.loginText{
+    font-size: 15px;
+    margin-bottom: 0%;
+    text-align: left;
+    position: relative;
+    z-index: 0;
+}
+.atcafeText{
+    font-size: 15px;
+    margin-bottom: 0%;
+    text-align: left;
+}
+.gameUI{
+    display: flex;
+    flex-direction: row;
+}
+.datingUI{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+.clickerUI{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    margin: 0.2%;
+}
+.taskBarUI{
+    display: flex;
+    flex-direction: column;
+}
+/*#cafeName{
+    font-weight: 600;
+    float: left;
+    margin-bottom: 0%;
+}*/
+#playerName{
+    font-weight: 600;
+    margin-bottom: 0%;
+    font-size: 14px;
+    text-align: left;
+}
+#coffeeIcon{
+    height: 80px;
+    width: 80px;
+    margin: 1%;
+    margin-left: 9%;
+    margin-top: -0.8%;
+    z-index: 1;
+    position: absolute;
+}
+#dummy{
+    width: 50%;
+}
+#cafeWindow{
+    margin-left: 0.2%;
+    margin-top: 0.2%;
+    width: 100%;
+    height: 750px;
+}
+#textBoxWindow{
+    width:98%;
+    align-self: left;
+    height: 20%;
+    margin:1%;
+    margin-top: 0%;
+    background-image: url("graphics/charactersprites/placeholder/placeholder.webp");
+}
+#cafeIcon{
+    height: 15px;
+    width: 15px;
+}
+#cafeVisitor{ /*delete later*/
+    width: 1300px;
+    height: 700px;
+}
+#cafeBackground{
+    background-image: url("graphics/charactersprites/placeholder/placeholder.webp");
+    height: 95%;
+}
+#customer{
+    width: 400px;
+    height: 600px;
+    margin-top: 3%;
+    margin-left: 50%;
+}
+#idleCafeWindow{
+    width: 97%;
+    height: 20%;
+    margin: 1%;
+}
+#saveData #manual #bugReport #devNote #donate{
+    font-size: 15px;
+    margin-right: 100px;
+
+}
+#yourCafe{
+    width: 95%;
+    z-index: 2;
+    position: relative;
+    margin-top: 1%;
+}
+#donation{
+    width: 25%;
+}
+#brewPadWindow{
+    margin: 1%;
+    margin-top: 0%;
+}
+#machineDepic{
+    height: 250px;
+    width: 250px;
+}
+#coffeeMachineUI{
+    margin-top: 0%;
+    margin: 1%;
+    margin-top: 0%;
+    background-image: url("graphics/charactersprites/placeholder/placeholder.webp");
+}
+#machineTitleText{
+    margin-right: 70%;
+}
+#shelfUI{
+    margin: 1%;
+    margin-top: 0%;
+    height: 14%;
+    background-image: url("graphics/charactersprites/placeholder/placeholder.webp");
+}
+#shelfTitleText{
+    margin-right: 78%;
+}
+#shelfItem1, #shelfItem2, #shelfItem3, #shelfItem4, #shelfItem5{
+    width: 16%;
+    float: left;
+    margin: 1%;
+}
+#taskBar{
+    width: 100%;
+    height: 40px;
+    background-color: #b4b4b4;
+}
+#OSMenue{
+    width: 75px;
+    height: 28px;
+    background-color: #dfdfdf;
+    border: 2px solid grey;
+    position: absolute;
+    margin-top: 0.2%;
+    margin-left: 0.2%;
+    margin-bottom: 0.2%;
+    z-index: 1;
+}
+#OSMenueShader1{
+    width: 2.5px;
+    height: 28px;
+    background-color: white;
+    position: absolute;
+    z-index: 2;
+    margin-left: 0.3%;
+    margin-top: 0.3%;
+}
+#OSMenueShader2{
+    width: 75px;
+    height: 2.5px;
+    background-color: white;
+    position: absolute;
+    z-index: 2;
+    margin-left: 0.3%;
+    margin-top: 0.3%;
+}
+#OSLogo{
+    width: 22px;
+    height: 22px;
+    background-color:#2574be;
+    position: absolute;
+    z-index: 3;
+    margin-left: 0.6%;
+    margin-top: 0.5%;
+    margin-bottom: 0.3%;
+}
+#OSLogoDiv1{
+    width: 2px;
+    height: 22px;
+    background-color:#b4b4b4;
+    position: absolute;
+    z-index: 4;
+    margin-left: 1.1%;
+    margin-top: 0.5%;
+    margin-bottom: 0.3%;
+}
+#OSLogoDiv2{
+    width: 22px;
+    height: 2px;
+    background-color:#dfdfdf;
+    position: absolute;
+    z-index: 4;
+    margin-left: 0.6%;
+    margin-top: 1.01%;
+    margin-bottom: 0%;
+}
+#OSBtnTxt{
+    font-size: 15px;
+    position: absolute;
+    z-index: 5;
+    margin-left: 2%;
+    margin-top: 0.7%;
+}
