@@ -1,7 +1,7 @@
-# The Epic Game
+# Idle Café
 *A clicker game and dating sim about Coffee*☕
 ## About this game
-Under the project name "The Epic Game" this epic game combines the satisfying elements of an idle clicker game, while also mimicking the cute dating elements of a visual novel.
+Under the project name "Idle Café" this epic game combines the satisfying elements of an idle clicker game, while also mimicking the cute dating elements of a visual novel.
 
 ### Plot
 Step into the shoes of a fully fledged and more than ready barista! Brew Coffee for a living to  buy even more Coffee and turn your Café into *the* Café! And maybe ask a fictional character for a Date and be happy!
@@ -18,8 +18,8 @@ Step into the shoes of a fully fledged and more than ready barista! Brew Coffee 
 >¹ These features are planned and worked on, thus might not be in the actual game right now
 
 ### Progress
-Main mechanics<br> [⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫]<br>
-Main implementations<br>[⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫]<br>
+Main mechanics<br> [⚫⚫⚫⚫⚫⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪]<br>
+Main implementations<br>[⚫⚫⚫⚫⚫⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪]<br>
 Dating mechanics<br>[⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫] <br>
 Dating implementations<br>[⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫]<br>
 Non-Core mechanics<br>[⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪⚪] <br>
